@@ -19,6 +19,18 @@ server.use('/user', (request, response) => {
     return response.json(payload)
 })
 
+server.use('/cart', (request, response) => {
+    const { descricao, valor, qtde } = request.body
+
+    const product = {
+        descricao,
+        valor,
+        qtde
+    }
+
+    return response.json({ data: product })
+})
+
 server.listen(3333, () => {
     return console.log (`rodando na porta ${3333}`)
 })
